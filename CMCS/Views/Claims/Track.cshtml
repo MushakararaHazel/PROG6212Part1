@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CMCS.Models.Claim>
+@{
+    ViewData["Title"] = "Track Claims";
+    Layout = "_Layout";
+}
+<div class="card">
+    <h2>My Claims</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Claim #</th>
+                <th>Period</th>
+                <th>Hours</th>
+                <th>Total (ZAR)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.PeriodStart.ToShortDateString() → @c.PeriodEnd.ToShortDateString()</td>
+                    <td>@c.HoursWorked</td>
+                    <td>@c.TotalAmount</td>
+                    <td>
+                        <span class="badge @(
+                        c.Status == CMCS.Models.ClaimStatus.Approved ? "green" :
+                        c.Status == CMCS.Models.ClaimStatus.Rejected ? "red" :
+                        c.Status == CMCS.Models.ClaimStatus.Submitted ? "blue" : "orange"
+                    )">@c.Status</span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

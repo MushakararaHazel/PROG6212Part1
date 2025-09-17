@@ -1,0 +1,42 @@
+﻿@model CMCS.ViewModels.SubmitClaimVM
+@{
+    ViewData["Title"] = "Submit Claim";
+    Layout = "_Layout";
+}
+<div class="card">
+    <h2>Submit Claim</h2>
+    <form>
+        <label>Staff ID</label>
+        <input value="@Model.Lecturer.Id" readonly />
+
+        <label>Name</label>
+        <input value="@Model.Lecturer.FullName" readonly />
+
+        <label>Email</label>
+        <input value="@Model.Lecturer.Email" readonly />
+
+        <label>Department</label>
+        <input value="@Model.Lecturer.Department" readonly />
+
+        <label>Period Start</label>
+        <input type="date" />
+
+        <label>Period End</label>
+        <input type="date" />
+
+        <label>Hours Worked</label>
+        <input type="number" step="0.5" />
+
+        <label>Hourly Rate (ZAR)</label>
+        <input type="number" step="0.01" />
+
+        <label>Notes</label>
+        <textarea></textarea>
+
+        <label>Supporting Documents</label>
+        <input type="file" />
+
+        <button class="btn-primary" type="button">Submit (Demo)</button>
+        <button class="btn-secondary" type="button">Cancel</button>
+    </form>
+</div>
